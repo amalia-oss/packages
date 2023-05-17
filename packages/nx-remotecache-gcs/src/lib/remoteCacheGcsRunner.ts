@@ -23,7 +23,7 @@ export const remoteCacheGcsRunner = createCustomRunner<RemoteCacheGcsOptions>(
     const gcsRemoteCache = new GCSRemoteCache(new Storage().bucket(bucketName));
 
     return {
-      name: '@amalia/nx-remotecache-gcs',
+      name: '@amalia-oss/nx-remotecache-gcs',
 
       // fileExists checks whether a file exists on your remote storage
       fileExists: (fileName) => gcsRemoteCache.exists(fileName),
