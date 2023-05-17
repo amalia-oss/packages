@@ -1,6 +1,6 @@
 {
   "name": "@amalia-oss/nx-remotecache-gcs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "repository": "https://github.com/amalia-oss/packages",
   "bugs": {

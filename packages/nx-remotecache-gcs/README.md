@@ -16,7 +16,7 @@ This package was built with [nx-remotecache-custom](https://www.npmjs.com/packag
 ## Install
 
 ```
-npm install --save-dev @amalia/nx-remotecache-gcs
+npm install --save-dev @amalia-oss/nx-remotecache-gcs
 ```
 
 ## Setup
