@@ -16,7 +16,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs remote-cache-gcs {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs nx-remotecache-gcs {args.otp} {args.ver} {args.tag}",
       "dependsOn": ["build"]
     },
     "lint": {

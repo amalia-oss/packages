@@ -21,9 +21,9 @@ function invariant(condition, message) {
   }
 }
 
-// Executing publish script: node path/to/publish.mjs {name} --version {version} --tag {tag}
+// Executing publish script: node path/to/publish.mjs {name} --otp {otp} --version {version} --tag {tag}
 // Default "tag" to "next" so we won't publish the "latest" tag by accident.
-const [, , name, version, tag = 'next'] = process.argv;
+const [, , name, otp, version, tag = 'next'] = process.argv;
 
 // A simple SemVer validation to validate the version
 const validVersion = /^\d+\.\d+\.\d+(-\w+\.\d+)?/;
@@ -31,6 +31,11 @@ invariant(
   version && validVersion.test(version),
   `No version provided or version did not match Semantic Versioning, expected: #.#.#-tag.# or #.#.#, got ${version}.`
 );
+
+invariant(
+  otp,
+  `You need to provide a 2FA one time password with --otp`
+)
 
 const graph = readCachedProjectGraph();
 const project = graph.nodes[name];
@@ -60,4 +65,4 @@ try {
 }
 
 // Execute "npm publish" to publish
-execSync(`npm publish --access public --tag ${tag}`);
+execSync(`npm publish --access public --tag="${tag}" --otp="${otp}"`);
