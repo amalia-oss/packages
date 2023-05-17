@@ -1,1 +1,3 @@
-export * from './lib/remote-cache-gcs';
+export * from './lib/remoteCacheGcsRunner';
+
+export { remoteCacheGcsRunner as default } from './lib/remoteCacheGcsRunner';

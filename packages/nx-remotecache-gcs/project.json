@@ -39,6 +39,15 @@
           "codeCoverage": true
         }
       }
+    },
+    "link": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "cd dist/packages/nx-remotecache-gcs && yarn link"
+        ]
+      }
     }
   },
   "tags": []

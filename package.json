@@ -5,6 +5,8 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "@google-cloud/storage": "^6.10.1",
+    "nx-remotecache-custom": "^4.0.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -30,5 +32,9 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "volta": {
+    "node": "18.16.0",
+    "yarn": "1.22.19"
+  }
 }

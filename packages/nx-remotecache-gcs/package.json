@@ -1,4 +1,17 @@
 {
   "name": "@amalia/nx-remotecache-gcs",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": "https://github.com/amalia-oss/packages",
+  "bugs": {
+    "url": "https://github.com/amalia-oss/packages/issues"
+  },
+  "description": "A task runner for nx with google cloud storage buckets as remote cache",
+  "dependencies": {
+    "@google-cloud/storage": "^6.10.1",
+    "nx-remotecache-custom": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@nx/workspace": ">= 16"
+  }
 }
