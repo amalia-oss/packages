@@ -21,25 +21,60 @@ npm install --save-dev @amalia/nx-remotecache-gcs
 
 ## Setup
 
-This task runner considers that you've already configured your Google Cloud CLI,
-especially the application default credentials using `gcloud auth application-default login` if you work locally.
+This task runner relies upon [`@google-cloud/storage`](https://www.npmjs.com/package/@google-cloud/storage).
+
+This package considers that you've already configured your Google Cloud CLI, especially the application default credentials if you work locally.
+
+```shell
+gcloud auth application-default login
+```
 
 The procedure for an automated environment such as a CI/CD can differ.
 
 ## Configuration
 
-| Parameter   | Description                                           | Environment Variable / .env | `nx.json`   |
-| ----------- | ----------------------------------------------------- | --------------------------- | ----------- |
-| Bucket Name | The name of your GCS bucket to use as cache container | `NX_REMOTE_CACHE_BUCKET`    | `bucketUrl` |
+| Parameter   | Description                                           | Environment Variable     | `nx.json`    |
+| ----------- | ----------------------------------------------------- | ------------------------ | ------------ |
+| Bucket Name | The name of your GCS bucket to use as cache container | `NX_REMOTE_CACHE_BUCKET` | `bucketName` |
+
+By default, environment variables will be loaded from the `.env` file at the root of your workspace.
+See [#Advanced Configuration](#advanced-configuration) for more information.
+
+
+**NB:** The environment variable will always take precedence over the `nx.json` configuration.
+
+In your `nx.json` file:
 
 ```json
 {
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@amalia/nx-remotecache-gcs",
+      "runner": "@amalia-oss/nx-remotecache-gcs",
       "options": {
-        "bucketUrl": "my-bucket-name",
+        "bucketName": "my-bucket-name",
         "cacheableOperations": ["build", "test", "lint", "e2e"]
+      }
+    }
+  }
+}
+```
+
+## Advanced Configuration
+
+See [nx-remotecache-custom](https://github.com/NiklasPor/nx-remotecache-custom#advanced-configuration).
+
+```json
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@amalia-oss/nx-remotecache-gcs",
+      "options": {
+        "bucketName": "my-bucket-name",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "silent": false,
+        "verbose": false,
+        "dotenv": true,
+        "dotenvPath": ".env"
       }
     }
   }
