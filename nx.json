@@ -1,4 +1,7 @@
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "extends": "nx/presets/npm.json",
+  "npmScope": "amalia-oss",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",
@@ -7,9 +10,6 @@
       }
     }
   },
-  "extends": "nx/presets/npm.json",
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "amalia-oss",
   "generators": {
     "@nx/node": {
       "library": {
@@ -28,6 +28,11 @@
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore"
       ]
+    },
+    "@nx/linter:eslint": {
+      "options": {
+        "maxWarnings": 0
+      }
     }
   }
 }

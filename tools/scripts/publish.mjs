@@ -32,10 +32,7 @@ invariant(
   `No version provided or version did not match Semantic Versioning, expected: #.#.#-tag.# or #.#.#, got ${version}.`
 );
 
-invariant(
-  otp,
-  `You need to provide a 2FA one time password with --otp`
-)
+invariant(otp, `You need to provide a 2FA one time password with --otp`);
 
 const graph = readCachedProjectGraph();
 const project = graph.nodes[name];

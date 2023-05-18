@@ -40,7 +40,6 @@ The procedure for an automated environment such as a CI/CD can differ.
 By default, environment variables will be loaded from the `.env` file at the root of your workspace.
 See [#Advanced Configuration](#advanced-configuration) for more information.
 
-
 **NB:** The environment variable will always take precedence over the `nx.json` configuration.
 
 In your `nx.json` file:
