@@ -1,0 +1,46 @@
+name: Quality Assurance
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # We need to fetch all history to be able to run nx affected commands.
+          fetch-depth: 0
+
+      # We cannot use volta-cli/actions because it does not support pnpm cache yet.
+      # See https://github.com/volta-cli/action/issues/121
+      # For now, we read node & pnpm versions from package.json and use pnpm/action-setup
+      # and actions/setup-node to install them.
+
+      - id: version
+        run: |
+          echo "pnpm=$(jq -r '.volta.pnpm' package.json)" >> "$GITHUB_OUTPUT"
+          echo "node=$(jq -r '.volta.node' package.json)" >> "$GITHUB_OUTPUT"
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ steps.version.outputs.pnpm }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.version.outputs.node }}
+          cache: 'pnpm'
+
+      # End of volta-cli/actions workaround
+
+      # We use nrwl/nx-set-shas to automatically find the base and head SHAs for `nx affected` commands.
+      - uses: nrwl/nx-set-shas@v3
+
+      # Note: `--frozen-lockfile` is supposed to be true on CI.
+      # See https://pnpm.io/cli/install#--frozen-lockfile
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm nx affected --targets=lint,test,build --parallel --configuration=production
