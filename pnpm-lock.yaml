@@ -13,6 +13,12 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
     devDependencies:
+      '@faker-js/faker':
+        specifier: ^8.0.1
+        version: 8.0.1
+      '@golevelup/ts-jest':
+        specifier: ^0.3.7
+        version: 0.3.7
       '@nx/devkit':
         specifier: ^16.2.1
         version: 16.2.1(nx@16.1.4)
@@ -1746,6 +1752,21 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@faker-js/faker@8.0.1:
+    resolution:
+      {
+        integrity: sha512-kbh5MenpTN9U0B4QcOI1NoTPlZHniSYQ3BHbhAnPjJGAmmFqxoxTE4sGdpy7ZOO9038DPGCuhXyMkjOr05uVwA==,
+      }
+    engines: { node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13' }
+    dev: true
+
+  /@golevelup/ts-jest@0.3.7:
+    resolution:
+      {
+        integrity: sha512-eoRfl9trBEt7BrQ6t3GHY/ZOcDOMBIOgqghd9qkIWMpcqQgWbU5Yf5UeHA6wwnLYpOMIJoKqazJ0cUDM79yr+g==,
+      }
     dev: true
 
   /@google-cloud/paginator@3.0.7:

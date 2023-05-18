@@ -43,4 +43,4 @@ jobs:
       # See https://pnpm.io/cli/install#--frozen-lockfile
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm nx affected --targets=lint,test,build --parallel --configuration=production
+      - run: pnpm nx affected --targets=lint,test,build --parallel --configuration=ci
