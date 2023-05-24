@@ -100,6 +100,9 @@ importers:
       nx-remotecache-custom:
         specifier: ^4.0.0
         version: 4.0.0(@nx/workspace@16.1.4)
+      tslib:
+        specifier: ^2.3.0
+        version: 2.3.0
 
 packages:
   /@ampproject/remapping@2.2.1:
@@ -2811,7 +2814,7 @@ packages:
       open: 8.4.2
       rxjs: 7.8.1
       tmp: 0.2.1
-      tslib: 2.3.0
+      tslib: 2.5.1
       yargs: 17.7.2
       yargs-parser: 21.1.1
     transitivePeerDependencies:
