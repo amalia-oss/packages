@@ -101,7 +101,7 @@ importers:
   packages/eslint-plugin:
     dependencies:
       eslint:
-        specifier: '>= 8'
+        specifier: '>= 6'
         version: 8.15.0
 
   packages/nx-remotecache-gcs:
