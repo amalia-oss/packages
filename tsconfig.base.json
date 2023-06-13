@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@amalia-oss/eslint-plugin": ["packages/eslint-plugin/src/index.ts"],
       "@amalia/nx-remotecache-gcs": ["packages/nx-remotecache-gcs/src/index.ts"]
     }
   },

@@ -1,0 +1,13 @@
+{
+  "name": "@amalia-oss/eslint-plugin",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/amalia-oss/packages",
+  "bugs": {
+    "url": "https://github.com/amalia-oss/packages/issues"
+  },
+  "description": "Custom ESLint rules",
+  "peerDependencies": {
+    "eslint": ">= 8"
+  }
+}
