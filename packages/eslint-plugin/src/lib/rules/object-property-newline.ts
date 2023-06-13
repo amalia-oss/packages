@@ -32,7 +32,8 @@ export const objectPropertyNewlineRule = {
   },
 
   create: (context) => {
-    const sourceCode = context.getSourceCode();
+    // Compatibility with ESLint < 8.40.
+    const sourceCode = context.sourceCode ?? context.getSourceCode();
 
     const allowSameLine: boolean =
       context.options[0]?.allowAllPropertiesOnSameLine;
