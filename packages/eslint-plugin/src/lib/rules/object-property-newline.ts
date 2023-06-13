@@ -32,7 +32,7 @@ export const objectPropertyNewlineRule = {
   },
 
   create: (context) => {
-    const { sourceCode } = context;
+    const sourceCode = context.getSourceCode();
 
     const allowSameLine: boolean =
       context.options[0]?.allowAllPropertiesOnSameLine;
