@@ -12,7 +12,8 @@
         "tsConfig": "packages/nx-remotecache-gcs/tsconfig.lib.json",
         "packageJson": "packages/nx-remotecache-gcs/package.json",
         "main": "packages/nx-remotecache-gcs/src/index.ts",
-        "assets": ["packages/nx-remotecache-gcs/*.md"]
+        "assets": ["packages/nx-remotecache-gcs/*.md"],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "publish": {
